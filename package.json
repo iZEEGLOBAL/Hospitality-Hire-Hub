@@ -1,0 +1,35 @@
+{
+  "name": "hospitality-hire-hub",
+  "version": "1.0.0",
+  "description": "Global hospitality career and recruitment platform",
+  "private": true,
+  "workspaces": [
+    "app",
+    "backend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "cd app && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build:backend": "cd backend && npm run build",
+    "start": "cd backend && npm start",
+    "install:all": "npm install && cd app && npm install && cd ../backend && npm install",
+    "test": "cd app && npm test && cd ../backend && npm test",
+    "lint": "cd app && npm run lint && cd ../backend && npm run lint"
+  },
+  "keywords": [
+    "hospitality",
+    "jobs",
+    "recruitment",
+    "career",
+    "hotel",
+    "restaurant"
+  ],
+  "author": "Hospitality Hire Hub Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
+
+
