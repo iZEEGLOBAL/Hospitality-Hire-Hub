@@ -22,8 +22,10 @@ const authRoutes = require('./routes/auth');
 console.log('Auth routes loaded');
 const jobSeekerRoutes = require('./routes/jobSeeker');
 console.log('JobSeeker routes loaded');
-// const employerRoutes = require('./routes/employer');
-// const jobRoutes = require('./routes/jobs');
+const employerRoutes = require('./routes/employer');
+console.log('Employer routes loaded');
+const jobRoutes = require('./routes/jobs');
+console.log('Jobs routes loaded');
 // const interviewRoutes = require('./routes/interview');
 // const resourceRoutes = require('./routes/resources');
 // const consultationRoutes = require('./routes/consultations');
@@ -34,7 +36,7 @@ console.log('JobSeeker routes loaded');
 // const testimonialRoutes = require('./routes/testimonials');
 // const faqRoutes = require('./routes/faqs');
 // const courseRoutes = require('./routes/courses');
-console.log('First 2 routes loaded successfully');
+console.log('First 4 routes loaded successfully');
 
 // Error handler
 const errorHandler = require('./middleware/errorHandler');
@@ -63,8 +65,10 @@ app.use('/api/auth', authRoutes);
 console.log('Auth routes mounted');
 app.use('/api/jobseeker', jobSeekerRoutes);
 console.log('JobSeeker routes mounted');
-// app.use('/api/employer', employerRoutes);
-// app.use('/api/jobs', jobRoutes);
+app.use('/api/employer', employerRoutes);
+console.log('Employer routes mounted');
+app.use('/api/jobs', jobRoutes);
+console.log('Jobs routes mounted');
 // app.use('/api/interview', interviewRoutes);
 // app.use('/api/resources', resourceRoutes);
 // app.use('/api/consultations', consultationRoutes);
@@ -75,7 +79,7 @@ console.log('JobSeeker routes mounted');
 // app.use('/api/testimonials', testimonialRoutes);
 // app.use('/api/faqs', faqRoutes);
 // app.use('/api/courses', courseRoutes);
-console.log('First 2 routes mounted successfully');
+console.log('First 4 routes mounted successfully');
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
