@@ -35,8 +35,8 @@ console.log('Loading routes...');
 console.log('Routes loading skipped for debugging');
 
 // Error handler
-// const errorHandler = require('./middleware/errorHandler');
-console.log('Error handler loading skipped for debugging');
+const errorHandler = require('./middleware/errorHandler');
+console.log('Error handler loaded successfully');
 
 const app = express();
 
@@ -93,8 +93,8 @@ app.get('/', (req, res) => {
 });
 
 // Error handler
-// app.use(errorHandler);
-console.log('Error handler usage skipped for debugging');
+app.use(errorHandler);
+console.log('Error handler applied successfully');
 
 // Handle 404
 app.use((req, res) => {
