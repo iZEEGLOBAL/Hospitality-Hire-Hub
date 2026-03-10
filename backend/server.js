@@ -18,8 +18,10 @@ console.log('Database connection initiated');
 
 // Route files
 console.log('Loading routes...');
-// const authRoutes = require('./routes/auth');
-// const jobSeekerRoutes = require('./routes/jobSeeker');
+const authRoutes = require('./routes/auth');
+console.log('Auth routes loaded');
+const jobSeekerRoutes = require('./routes/jobSeeker');
+console.log('JobSeeker routes loaded');
 // const employerRoutes = require('./routes/employer');
 // const jobRoutes = require('./routes/jobs');
 // const interviewRoutes = require('./routes/interview');
@@ -32,7 +34,7 @@ console.log('Loading routes...');
 // const testimonialRoutes = require('./routes/testimonials');
 // const faqRoutes = require('./routes/faqs');
 // const courseRoutes = require('./routes/courses');
-console.log('Routes loading skipped for debugging');
+console.log('First 2 routes loaded successfully');
 
 // Error handler
 const errorHandler = require('./middleware/errorHandler');
@@ -57,8 +59,10 @@ app.use(cors({
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Mount routers
-// app.use('/api/auth', authRoutes);
-// app.use('/api/jobseeker', jobSeekerRoutes);
+app.use('/api/auth', authRoutes);
+console.log('Auth routes mounted');
+app.use('/api/jobseeker', jobSeekerRoutes);
+console.log('JobSeeker routes mounted');
 // app.use('/api/employer', employerRoutes);
 // app.use('/api/jobs', jobRoutes);
 // app.use('/api/interview', interviewRoutes);
@@ -71,7 +75,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // app.use('/api/testimonials', testimonialRoutes);
 // app.use('/api/faqs', faqRoutes);
 // app.use('/api/courses', courseRoutes);
-console.log('Routes mounting skipped for debugging');
+console.log('First 2 routes mounted successfully');
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
