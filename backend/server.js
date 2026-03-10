@@ -4,14 +4,20 @@ const dotenv = require('dotenv');
 const path = require('path');
 const compression = require('compression');
 
+console.log('Starting server...');
+
 // Load env vars
 dotenv.config();
 console.log("Mongo URI:", process.env.MONGO_URI);
+
 // Connect to database
+console.log('Connecting to database...');
 const connectDB = require('./config/database');
 connectDB();
+console.log('Database connection initiated');
 
 // Route files
+console.log('Loading routes...');
 const authRoutes = require('./routes/auth');
 const jobSeekerRoutes = require('./routes/jobSeeker');
 const employerRoutes = require('./routes/employer');
@@ -26,6 +32,7 @@ const galleryRoutes = require('./routes/gallery');
 const testimonialRoutes = require('./routes/testimonials');
 const faqRoutes = require('./routes/faqs');
 const courseRoutes = require('./routes/courses');
+console.log('All routes loaded');
 
 // Error handler
 const errorHandler = require('./middleware/errorHandler');
