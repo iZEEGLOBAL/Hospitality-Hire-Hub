@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
+    if (!process.env.MONGO_URI) {
+      console.error('MONGO_URI environment variable is not set');
+      console.log('Server will start without database connection');
+      return;
+    }
+
     const conn = await mongoose.connect(process.env.MONGO_URI);
 
     console.log(`MongoDB Connected: ${conn.connection.host}`);
